@@ -1,10 +1,26 @@
 import "./styles.css";
-
+import React from 'react';
+var shoppingList=['aloo🥔','pudhina🥦','pyaj🧄','lahsun🧅','dhania🥬','bengan🍆','tamatar🍅','mitchi🌶','gajar🥕']
 export default function App() {
+  function getBg(index)
+  {
+    if(index%2===0)
+    {
+      return "white"
+    }return "green"
+  }
+    
+  
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <h1>SHOPPING LIST</h1>
+      <ul>
+      {
+        shoppingList.map(function(item,index){
+          return <li key={item} style={{backgroundColor:getBg(index),padding:2 rem}}>{item}</li>
+        })
+      }
+    </ul>
     </div>
   );
 }
